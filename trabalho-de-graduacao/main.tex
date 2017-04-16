@@ -1,0 +1,108 @@
+%---------------------------------------------------------------------------- 
+%
+%  $Description: General Research Plan Structure $
+%
+%  $Author: dloubach, with great contribution from rbonna $
+%  $Release Date: December 20, 2016 $
+%
+%  O Projeto de Pesquisa deve demonstrar claramente os desafios científicos ou 
+%  técnicos a serem superados pela pesquisa proposta, os meios e métodos para 
+%  isso e a relevância dos resultados esperados para o avanço do conhecimento 
+%  na área.
+%  Máximo 20 páginas.
+%
+%  The research project shall clearly demonstrate the scientific or techinical
+%  chalenges to be overcame by the proposed research, as well as the ways and
+%  methods to achieve so and moreover the expected results relevance to advance
+%  the area knowledgement.
+%  20 pages maximum.
+%---------------------------------------------------------------------------- 
+\documentclass[12pt, a4paper]{article}
+
+% [portuguese|english], label=[pt_br, en_usa], level=[undergrad | msc | phd]
+\usepackage[portuguese, label=pt_br, level=undergrad]{general-settings}
+
+% [on | off]
+\usepackage[on]{review-settings}
+
+% title definitions
+\newcommand{\researchTitle}{A study on Internet of Things Architecture}
+\newcommand{\researchTitleOtherLanguage}{Um estudo sobre a arquitetura da Internet das Coisas}
+
+% research level definitions
+\newcommand{\studentName}{Pedro Moraes Ribeiro}
+\newcommand{\advisorName}{Denis S. Loubach}
+
+% figures path
+\graphicspath{{./figs/}}
+
+% space between lines
+\linespread{1.3}
+
+\begin{document}
+% our title page
+\title{Trabalho de Graduação}
+\makeourtitle
+
+% contents
+\tableofcontents
+
+\newpage
+\section*{Resumo}
+
+O rápido crescimento de dispositivos interconectados, que formam a chamada Internet das Coisas (Internet of Things em inglês), sem que houvesse uma preocupação com a segurança dos sistemas embarcados, permitiu ataques de botnets como o Mirai que infectou milhares de dispositivos e causou o maior ataque de Distributed Denial of Service (DDoS) da história. É com este contexto que o objetivo deste estudo é analisar as atuais arquiteturas referência de IoT, entender como elas funcionam e quais são suas vulnerabilidades.
+
+
+\textbf{Palavras chave --} Internet das Coisas$_1$; Arquitetura$_2$; Embarcados$_3$; Segurança$_4$;
+
+%\newpage
+%\section*{\textit{Abstract}}
+%\textit{
+%  Your abstract goes here.
+%}\\%
+%
+%\textit{\textbf{Keywords --} keyword$_1$, ..., keyword$_n$.}
+
+
+\newpage
+\section{\sectionI}
+\label{sec:intro}
+
+A companhia de informação e análises IHS Markit calculou que em 2017 haverá mais de 20 bilhões dispositivos fazendo parte da Internet das Coisas \cite{IHSMarkitTrend}. Este rápido crescimento no mercado introduziu à rede milhões de dispositivos vulneráveis, que são câmeras de segurança, modems, roteadores e diversos outros equipamentos que são instalados sem haver uma preocupação com a segurança do próprio dispositivo.
+\\Em 2016 surgiu um botnet chamado Mirai que infectou milhares de dispositivos e os utilizou para orquestrar ataques de DDoS (Distributed Denial of Service) contra sites e empresas \cite{Mirai_Wired}. Em outubro de 2016, uma empresa que controla parte do sistema de DNS da internet sofreu o maior ataque de DDoS da história deixando sites como Twitter, Reddit e Netflix fora do ar \cite{Mirai_Guardian}.
+\\A proposta desta pesquisa é estudar as arquiteturas de referência existentes para os sistemas de IoT, procurar entender como elas funcionam e analisar suas fragilidades em relação aos dispositivos da rede. Além de estudar e testar as dicas de segurança propostas pela Cloud Security Alliance (CSA) \cite{13steps}.
+\\Os testes serão feitos com sistemas embarcados como o Raspberry Pi e o Arduíno utilizando como modelo as arquiteturas estudadas. E a partir destes estudos e testes queremos identificar os riscos existentes nesta crescente rede de dispositivos interconectados.
+\newpage
+\section{\sectionII}
+\label{sec:rev_Bib}
+
+Para este Trabalho de Graduação, serão utilizadas fontes de artigos sobre o tema e alguns sites e papers disponíveis na Internet.\\
+De acordo com a União Internacional de Telecomunicação (ITU), uma agência especializada em telecomunicações das Nações Unidas, a Internet das Coisas pode ser definida como "uma infraestrutura global para a sociedade da informação, permitindo serviços avançados pela interconexão (física ou virtual) de coisas, baseado nas tecnologias de informação e comunicação interoperáveis existentes e em evolução." \cite{ITU_IoT}.\\ 
+A Internet das Coisas tem crescido de forma assustadora, a Boston Consulting Group prevê que até 2020 serão gastos U\$267 bilhões em tecnologias, produtos e serviços IoT \cite{Forbes_IoT}. Diversas companhias como a Intel, Symantec, Microsof e Oracle estão pesquisando e desenvolvendo suas próprias soluções para a tecnologia emergente, cada uma desenvolvendo sua própria arquitetura específica (\cite{Intel_Iot},\cite{Symantec_Iot},\cite{Microsoft_Iot},\cite{Oracle_IoT}).\\
+Mas o que é uma arquitetura de IoT? A rede de dispositivos e sensores que são conectados neste novo paradigma tecnológico é altamente heterogênea, com cada objeto tendo um protocolo de comunicação diferente. Então é necessário criar um ambiente que faça com que todos essas 'coisas' possam conversar entre si, ou com um outro sistema ou com a nuvem sem que hajam barreiras de comunicação. Portanto uma boa arquitetura deve ser capaz de lidar com os problemas inerentes dessa rede. O artigo "An Analysis of Reference Architectures for the Internet of Things" \cite{Cavalcante:2015:ARA:2755567.2755569} cita alguns pontos que a arquitetura deve ser capaz de lidar, como (i) problemas com escalabilidade e endereçamento, (ii) a heterogeneidade do ambiente, (iii) abstração dos serviços e dispositivos físicos para os aplicativos e usuários, (iv) prover gerenciamento de dispositivo, (v) permitir a conexão dos dispositivos através da rede e (vi) gerenciar grandes volumes de dados.\\
+De acordo com o professor Jong-Moon Chung, da Universidade Yonsei \cite{IoT_Coursera}, a arquitetura da Internet das Coisas é formada por 4 camadas: (a) Conectividade de Sensores e Rede, (b) Gateway e Rede, (c) Gerenciamento de Serviço e (d) Aplicações. Este modelo genérico de arquitetura pode variar dependendo da empresa que a desenvolveu, pois não há um referência única a ser seguida pelas companhias de tecnologia. O artigo \cite{Cavalcante:2015:ARA:2755567.2755569} também compara duas arquiteturas de referência propostas, a "Architectural Reference Model" (IoT ARM) \cite{IoTa_ref} que foi desenvolvida dentro do "Internet of Things Architecture European project" (IoT-a) e a arquitetura proposta pela companhia WSO2 \cite{WSO2_IoT}. A primeira foi feita para ser uma referência base para o desenvolvimento de sistemas IoT e a segunda foi criada a partir das experiências da WSO2 desenvolvendo soluções em IoT. \\
+Apesar dos investimentos no estudo e desenvolvimento de tecnologias na área de IoT por diversas empresas, os investimentos em segurança dos dispositivos ainda não é um foco das empresas que fornecem solução na área de Internet das Coisas. Evidência disso é o caso do ataque Mirai \cite{Mirai_Wired} e a invasão de diversas Babas Eletrônicas \cite{Baby_Monitor}. Os dispositivos vem normalmente com uma senha de administração pré-determinada e não exige que o usuário troque a senha para utilizar o dispositivo. E foi testando senhas padrões que o botnet Mirai invadiu milhares de câmeras de segurança.\\
+Mas há grupos que estão estudando sobre a segurança dos dispositivos na Internet das Coisas, como é o caso do Cloud Security Alliance, que publicou um documento com 13 recomendações para desenvolver produtos IoT mais seguros \cite{13steps}. Citando desde uma metodologia de desenvolvimento que inclua a preocupação com os riscos até revisões na segurança em testes com os dispositivos prontos. 
+
+\section{\sectionIII}
+\label{sec:project}
+
+
+\section{\sectionIV}
+\label{sec:experiments}
+
+
+\section{\sectionVII}
+\label{sec:result-analysis}
+
+
+\section{\sectionIX}
+\label{sec:conclusion}
+
+\newpage
+% references
+\bibliographystyle{ieeetr}
+\bibliography{refs/references}
+
+
+\end{document}
